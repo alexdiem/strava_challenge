@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-//import { App, OtherApp } from './App';
+import { App, OtherApp } from './App';
 import reportWebVitals from './reportWebVitals';
 import { 
   BrowserRouter as Router,
@@ -19,6 +19,9 @@ root.render(
       <div>
         <nav>
           <ul>
+          <li>
+              <Link to="/">Home</Link>
+            </li>
             <li>
               <Link to="/app">App</Link>
             </li>
@@ -29,7 +32,8 @@ root.render(
         </nav>
 
         <Routes>
-          <Route path="/" element={<App />} />
+          <Route path="/" />
+          <Route path="/app" element={<App />} />
           <Route path="/other" element={<OtherApp />} />
         </Routes>
       </div>
@@ -37,19 +41,6 @@ root.render(
     </Router>
   </React.StrictMode>
 );
-
-
-function App() {
-  return (
-          <h1>App</h1>
-  )
-}
-
-function OtherApp() {
-  return (
-          <h1>OtherApp</h1>
-  )
-}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
