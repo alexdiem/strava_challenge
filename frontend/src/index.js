@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { App, OtherApp } from './App';
+import { StravaLogin } from './StravaLogin';
 import reportWebVitals from './reportWebVitals';
 import { 
   BrowserRouter as Router,
@@ -13,7 +14,7 @@ import {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <h1>Test</h1>
+    <h1>Strava Segment Challenge</h1>
 
     <Router>
       <div>
@@ -23,7 +24,7 @@ root.render(
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/app">App</Link>
+              <Link to="/login/strava">Login with Strava</Link>
             </li>
             <li>
               <Link to="/other">OtherApp</Link>
@@ -33,7 +34,7 @@ root.render(
 
         <Routes>
           <Route path="/" />
-          <Route path="/app" element={<App />} />
+          <Route path="/login/strava" element={<StravaLogin />} />
           <Route path="/other" element={<OtherApp />} />
         </Routes>
       </div>
