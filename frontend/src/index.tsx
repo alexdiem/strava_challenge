@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { App, OtherApp } from './App'
-import { handleStravaLogin } from './StravaLogin'
+import { handleStravaLogin, SegmentChallenge } from './StravaLogin'
 import { 
   BrowserRouter as Router,
   Link, 
@@ -24,20 +23,24 @@ root.render(
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link onClick={handleStravaLogin} to="/login/strava">Login with Strava</Link>
-            </li>
-            <li>
               <Link to="/other">OtherApp</Link>
             </li>
           </ul>
         </nav>
 
         <Routes>
-          <Route path="/" />
-          <Route path="/other" element={<OtherApp />} />
+          <Route path="/" element={<Index />} />
+          <Route path="/callback/exchange_token" element={<SegmentChallenge />} />
         </Routes>
       </div>
 
     </Router>
   </React.StrictMode>
 )
+
+
+function Index() {
+  return (
+    <p>Welcome. Please <Link onClick={handleStravaLogin} to="/login/strava">login with Strava</Link> to join the segment challenge.</p>
+  )
+}
