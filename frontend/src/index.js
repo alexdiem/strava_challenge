@@ -13,6 +13,8 @@ import {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <h1>Test</h1>
+
     <Router>
       <div>
         <nav>
@@ -27,12 +29,8 @@ root.render(
         </nav>
 
         <Routes>
-          <Route path="/app">
-            <App />
-          </Route>
-          <Route path="/other">
-            <OtherApp />
-          </Route>
+          <Route path="/" element={<App />} />
+          <Route path="/other" element={<OtherApp />} />
         </Routes>
       </div>
 
