@@ -1,5 +1,5 @@
 import React from "react"
-import { useParams } from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 
 export function handleStravaLogin() {
     const stravaClientId = process.env.REACT_APP_STRAVA_CLIENT_ID
@@ -13,8 +13,11 @@ export function handleStravaLogin() {
 
 
 export function SegmentChallenge() {
-    const {state, code, scope} = useParams()
-    console.log(code)
+    const [searchParams] = useSearchParams()
+    for (const entry of searchParams.entries()) {
+        const [param, value] = entry;
+        console.log(param, value);
+      }
     return (
         <p>Congrats, you have successfully logged in.</p>
     )
